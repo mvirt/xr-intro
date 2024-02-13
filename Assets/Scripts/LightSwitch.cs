@@ -5,20 +5,20 @@ using UnityEngine.InputSystem;
 
 public class LightSwitch : MonoBehaviour
 {
-    private Light light;
+    private Light lightComponent;
     public InputActionReference action;
     // Start is called before the first frame update
     void Start()
     {
-        light = gameObject.GetComponent<Light>();
+        lightComponent = gameObject.GetComponent<Light>();
         action.action.Enable();
         action.action.performed += (ctx) =>
         {
             Debug.Log("Light color changed");
-            if(light.color == Color.white) {
-                light.color = Color.blue;
+            if(lightComponent.color == Color.white) {
+                lightComponent.color = Color.blue;
             } else {
-                light.color = Color.white;
+                lightComponent.color = Color.white;
             }
         };
     }
